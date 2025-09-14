@@ -1,6 +1,6 @@
 const Skeleton = () => (
   <div className="space-y-3">
-    {[1, 2, 3].map((i) => (
+    {[1, 2, 3]?.map((i) => (
       <div key={i} className="flex items-center space-x-3 p-3 animate-pulse">
         <div className="w-10 h-10 bg-gray-200 rounded-full"></div>
         <div className="flex-1">

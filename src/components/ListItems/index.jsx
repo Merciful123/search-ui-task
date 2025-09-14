@@ -1,15 +1,15 @@
 import { useState } from 'react';
 
-import { ExternalLink, Link, File } from 'lucide-react';
+import { ExternalLink, Link, List } from 'lucide-react';
 
-const FileListItem = ({ file, searchTerm }) => {
+
+const ListItems = ({ list, searchTerm }) => {
 
   const [showTooltip, setShowTooltip] = useState(false);
-  
   const [tooltipText, setTooltipText] = useState('');
 
   const handleCopyLink = () => {
-    const link = `https://example.com/file/${file.id}`;
+    const link = `https://example.com/list/${list?.id}`;
     navigator.clipboard.writeText(link);
     setTooltipText('Link copied!');
     setShowTooltip(true);
@@ -17,12 +17,12 @@ const FileListItem = ({ file, searchTerm }) => {
   };
 
   const handleOpenInNewTab = () => {
-    const link = `https://example.com/file/${file.id}`;
+    const link = `https://example.com/list/${list?.id}`;
     window.open(link, '_blank');
   };
 
   // Highlight matching text
-  
+ 
   const highlightMatch = (text, term) => {
     if (!term) return text;
     const regex = new RegExp(`(${term})`, 'gi');
@@ -38,14 +38,14 @@ const FileListItem = ({ file, searchTerm }) => {
     <div className="group flex items-center justify-between p-3 hover:bg-gray-100 rounded-lg transition-colors duration-150">
       <div className="flex items-center space-x-3">
         <div className="relative">
-          <File size={32} className="text-gray-500" />
+          <List size={32} className="text-gray-500" />
         </div>
         <div>
           <div className="font-medium text-gray-900">
-            {highlightMatch(file?.name, searchTerm)}
+            {highlightMatch(list?.name, searchTerm)}
           </div>
           <div className="text-sm text-gray-500">
-            {file?.size} • {file?.lastModified}
+            {list?.itemCount} items • {list?.lastModified}
           </div>
         </div>
       </div>
@@ -77,4 +77,4 @@ const FileListItem = ({ file, searchTerm }) => {
   );
 };
 
-export default FileListItem;
+export default ListItems;

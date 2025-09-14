@@ -1,60 +1,7 @@
-// import userImage from "../assets/userPic.jpg";
+import { FileText, Users, MessageCircle, List } from "lucide-react";
 
-// // Mock user data
-
-// export const mockUsers = [
-//   {
-//     id: 1,
-//     name: "Alice Johnson",
-//     avatar: { userImage },
-//     isActive: true,
-//     lastActive: "2 min ago",
-//   },
-//   {
-//     id: 2,
-//     name: "Bob Smith",
-//     avatar: { userImage },
-//     isActive: false,
-//     lastActive: "1 hour ago",
-//   },
-//   {
-//     id: 3,
-//     name: "Carol Davis",
-//     avatar: { userImage },
-//     isActive: true,
-//     lastActive: "just now",
-//   },
-//   {
-//     id: 4,
-//     name: "David Wilson",
-//     avatar: { userImage },
-//     isActive: false,
-//     lastActive: "3 hours ago",
-//   },
-//   {
-//     id: 5,
-//     name: "Emma Brown",
-//     avatar: { userImage },
-//     isActive: true,
-//     lastActive: "5 min ago",
-//   },
-// ];
-
-// // Available tabs
-// export const availableTabs = [
-//   { id: "all", name: "All", enabled: true },
-//   { id: "users", name: "Users", enabled: true },
-//   { id: "groups", name: "Groups", enabled: false },
-//   { id: "files", name: "Files", enabled: false },
-// ];
-
-
-
-
-// userData.js
 import userImage from "../assets/userPic.jpg";
 
-// Mock user data
 export const mockUsers = [
   {
     id: 1,
@@ -132,10 +79,35 @@ export const mockChats = [
   },
 ];
 
-// Available tabs
+// Mock list data
+export const mockLists = [
+  {
+    id: 1,
+    name: "Todo List",
+    type: "list",
+    itemCount: 5,
+    lastModified: "1 hour ago"
+  },
+  {
+    id: 2,
+    name: "Shopping List",
+    type: "list",
+    itemCount: 8,
+    lastModified: "2 days ago"
+  },
+  {
+    id: 3,
+    name: "Project Tasks",
+    type: "list",
+    itemCount: 12,
+    lastModified: "5 hours ago"
+  },
+];
+
+// Available tabs (excluding "All" which will always be present)
 export const availableTabs = [
-  { id: "all", name: "All", enabled: true },
-  { id: "files", name: "Files", enabled: true },
-  { id: "people", name: "People", enabled: true },
-  { id: "chat", name: "Chat", enabled: false },
+  { id: "files", name: "Files", enabled: true, icon: FileText },
+  { id: "people", name: "People", enabled: true, icon: Users },
+  { id: "chat", name: "Chat", enabled: false, icon: MessageCircle },
+  { id: "list", name: "List", enabled: false, icon: List },
 ];

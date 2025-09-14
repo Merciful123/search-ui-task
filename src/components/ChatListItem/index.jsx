@@ -1,9 +1,11 @@
-// ChatListItem.jsx (new component)
 import { useState } from 'react';
+
 import { ExternalLink, Link, MessageCircle } from 'lucide-react';
 
 const ChatListItem = ({ chat, searchTerm }) => {
+
   const [showTooltip, setShowTooltip] = useState(false);
+  
   const [tooltipText, setTooltipText] = useState('');
 
   const handleCopyLink = () => {
@@ -20,11 +22,12 @@ const ChatListItem = ({ chat, searchTerm }) => {
   };
 
   // Highlight matching text
+  
   const highlightMatch = (text, term) => {
     if (!term) return text;
     const regex = new RegExp(`(${term})`, 'gi');
-    const parts = text.split(regex);
-    return parts.map((part, index) => 
+    const parts = text?.split(regex);
+    return parts?.map((part, index) => 
       regex.test(part) ? 
         <span key={index} className="bg-yellow-200 font-medium">{part}</span> : 
         part
@@ -39,10 +42,10 @@ const ChatListItem = ({ chat, searchTerm }) => {
         </div>
         <div>
           <div className="font-medium text-gray-900">
-            {highlightMatch(chat.name, searchTerm)}
+            {highlightMatch(chat?.name, searchTerm)}
           </div>
           <div className="text-sm text-gray-500">
-            {chat.lastMessage} • {chat.lastActive}
+            {chat?.lastMessage} • {chat?.lastActive}
           </div>
         </div>
       </div>

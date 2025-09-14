@@ -8,7 +8,7 @@ const UserListItem = ({ user, searchTerm }) => {
   const [tooltipText, setTooltipText] = useState('');
 
   const handleCopyLink = () => {
-    const link = `https://example.com/user/${user.id}`;
+    const link = `https://example.com/user/${user?.id}`;
     navigator.clipboard.writeText(link);
     setTooltipText('Link copied!');
     setShowTooltip(true);
@@ -16,17 +16,17 @@ const UserListItem = ({ user, searchTerm }) => {
   };
 
   const handleOpenInNewTab = () => {
-    const link = `https://example.com/user/${user.id}`;
+    const link = `https://example.com/user/${user?.id}`;
     window.open(link, '_blank');
   };
 
   // Highlight matching text
-  
+
   const highlightMatch = (text, term) => {
     if (!term) return text;
     const regex = new RegExp(`(${term})`, 'gi');
-    const parts = text.split(regex);
-    return parts.map((part, index) => 
+    const parts = text?.split(regex);
+    return parts?.map((part, index) => 
       regex.test(part) ? 
         <span key={index} className="bg-yellow-200 font-medium">{part}</span> : 
         part
@@ -38,20 +38,20 @@ const UserListItem = ({ user, searchTerm }) => {
       <div className="flex items-center space-x-3">
         <div className="relative">
           <img 
-            src={user.avatar} 
-            alt={user.name}
+            src={user?.avatar} 
+            alt={user?.name}
             className="w-10 h-10 rounded-full object-cover"
           />
           <div className={`absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-white ${
-            user.isActive ? 'bg-green-400' : 'bg-gray-300'
+            user?.isActive ? 'bg-green-400' : 'bg-gray-300'
           }`}></div>
         </div>
         <div>
           <div className="font-medium text-gray-900">
-            {highlightMatch(user.name, searchTerm)}
+            {highlightMatch(user?.name, searchTerm)}
           </div>
           <div className="text-sm text-gray-500">
-            {user.isActive ? 'Active' : `Last seen ${user.lastActive}`}
+            {user?.isActive ? 'Active' : `Last seen ${user?.lastActive}`}
           </div>
         </div>
       </div>
