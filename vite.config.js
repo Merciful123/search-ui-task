@@ -7,10 +7,4 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
 });
 
-// import { defineConfig } from 'vite'
 
-// export default defineConfig({
-//   plugins: [
-//     tailwindcss(),
-//   ],
-// })

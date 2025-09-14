@@ -1,12 +1,10 @@
-import './App.css'
+import SearchUI from './pages/SearchUI'
 
 function App() {
 
   return (
     <>
-      <div className=' flex justify-center h-screen bg-green-100'>
-        Hellow world
-      </div>
+      <SearchUI/>
     </>
   )
 }
